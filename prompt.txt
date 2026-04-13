@@ -1,0 +1,55 @@
+Du hast gesagt
+Hier ist die Adresse für das Rezept: https://www.kochbar.de/rezept/335192/Kartoffelpuffer-mit-Apfelmus.html?utm_medium=oc&utm_source=taboola
+
+Erzeuge gemäß der untenstehenden Anweisung ein Markdown daraus.
+
+
+
+
+### Zusammenfassung der Anforderungen
+* **Ziel:** Das Rezept von einer beliebigen Webseite als lokale Markdown-Datei speichern.
+* **Struktur:**
+    * **Metadaten:** Nur die Quell-URL wird aufgenommen.
+    * **Bilder:** Das passende Rezeptbild wird automatisch von der Webseite heruntergeladen und lokal parallel zur Markdown-Datei gespeichert. Das Markdown enthält eine direkte Bildreferenz auf diese lokale Datei.
+    * **Mengen:** Basierend auf 4 Personen, ergänzt durch eine allgemeine Notiz zur Skalierung.
+    * **Dateiname:** Keine speziellen Vorgaben (Standard-Titel genügt).
+
+---
+
+### Der Umsetzungs-Plan
+1.  **Struktur-Finalisierung:** Ich erstelle den finalen Markdown-Code-Block basierend auf den unten stehenden Details.
+2.  **Bild-Ermittlung:** Ich finde die bestmögliche Bildquelle auf der Rezeptseite, lade das Bild herunter und speichere es parallel zur Markdown-Datei.
+3.  **Transfer:** Du kopierst den Markdown-Inhalt in eine Textdatei mit der Endung `.md` auf deinen Rechner und stellst sicher, dass das heruntergeladene Bild im selben Ordner liegt.
+
+---
+
+### Exemplarisches Beispiel (Entwurf)
+So wird die Datei am Ende aussehen, wenn wir den Plan ausführen:
+
+```markdown
+# Chinakohl-Salat mit Joghurt-Dressing
+
+**Quelle:** https://www.kochbar.de/rezept/351784/Chinakohl-Salat-mit-Joghurt-Dressing.html?personen=4
+
+![Salat-Bild](./chinakohl-salat.jpg)
+
+## Eckdaten
+- **Portionen:** 4
+- **Zeitaufwand:** ca. 35 Min. (inkl. Ruhezeit)
+
+## Zutaten
+- 1 Stk. Chinakohl
+- 150 g Joghurt
+- 1 Prise Salz & Zucker
+- 1 Spritzer Zitronensaft
+- 1 Schuss Weinessig & Speiseöl
+- 1 EL Kräuter (nach Wahl)
+
+## Zubereitung
+1. Chinakohl putzen, schneiden und waschen.
+2. Dressing aus Joghurt und Gewürzen anrühren.
+3. Alles vermengen und ca. 15–20 Minuten ziehen lassen.
+
+---
+**Hinweis zur Portionierung:** Die oben genannten Mengen beziehen sich auf 4 Personen. Die Zutaten können je nach gewünschter Personenanzahl proportional umgerechnet werden.
+```

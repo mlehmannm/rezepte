@@ -1,0 +1,44 @@
+# Configuration file for MegaLinter
+#
+
+CLEAR_REPORT_FOLDER: true
+
+DEFAULT_WORKSPACE: /tmp/lint
+
+ENABLE_LINTERS:
+  - MARKDOWN_RUMDL
+  - YAML_YAMLLINT
+
+FLAVOR_SUGGESTIONS: false
+
+FORMATTERS_DISABLE_ERRORS: false
+
+REPORT_OUTPUT_FOLDER: tmp/megalinter/reports
+
+PRINT_ALPACA: false
+
+SHOW_SKIPPED_LINTERS: false
+
+#
+# Markdown
+#
+
+MARKDOWN_DEFAULT_STYLE: rumdl
+
+# https://megalinter.io/latest/descriptors/markdown_rumdl/
+# https://github.com/rvben/rumdl/blob/main/docs/global-settings.md
+MARKDOWN_RUMDL_ARGUMENTS:
+  - "--cache-dir"
+  - "tmp/megalinter/rumdl/cache"
+  - "--disable"
+  - "MD013"
+
+#
+# YAML
+#
+
+# https://megalinter.io/latest/descriptors/yaml_yamllint/
+# https://yamllint.readthedocs.io/en/stable/configuration.html
+YAML_YAMLLINT_ARGUMENTS:
+  - "-f"
+  - "colored"
