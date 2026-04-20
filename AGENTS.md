@@ -1,81 +1,27 @@
 # AGENTS.md
 
-## Vorgehen
-Triff pragmatische Annahmen und dokumentiere sie. Frage nur nach, wenn die Information weder in Quelle, Kontext noch bestehenden Rezepten zu finden ist
-- Versuche das Problem im ganzen zu verstehen, bevor du mit der Umsetzung beginnst.
+Hinweise für Coding-Agents in diesem Repo.
 
-## Rezept extrahieren
+## Was dieses Repo ist
 
-- Wenn es ein Druckansicht gibt, dann bevorzuge diese zum Extrahieren, weil sie die Informationen meist kompakter darstellt, gerade in Bezug auf die Mengen der Zutaten.
+Kuratierte Sammlung deutscher Rezepte (Markdown), meist aus Rezept-Webseiten extrahiert. Kein Build — nur Inhalte plus Linting.
 
-## Aufbau eines Rezeptes
+## Maßgebliche Spec
 
-### Verzeichnis- und Dateistruktur
+`docs/rezept-hinzufuegen.md` regelt Layout, Markdown-Template, Index-Pflege, Duplikat-Handling, Abschluss-Schritte. **Vor Anlegen/Ändern von Rezepten lesen.** Bei Widerspruch zu dieser Datei: Spec gewinnt.
 
-* Jedes Rezept kommt in ein eigenes Unterverzeichnis im Verzeichnis `rezepte/`.
-* Der Verzeichnisname ist der Rezeptname in Kleinbuchstaben, mit Bindestrichen statt Leerzeichen, ohne Umlaute oder Sonderzeichen. Er soll so kurz wie möglich, aber eindeutig sein.
-    * Beispiel: `Kartoffelpuffer mit Apfelmus` → `kartoffelpuffer-apfelmus`
-* Das Rezept wird als Markdown-Datei mit dem Namen `rezept.md` im Unterverzeichnis gespeichert.
-* Ein passendes Bild wird neben der Markdown-Datei als `rezept.{ext}` abgelegt, wobei die Endung der Quelldatei erhalten bleibt (z. B. `rezept.jpg`, `rezept.png`).
-* Existiert kein Bild, aber ein Video, extrahiere einen repräsentativen Frame – idealerweise das fertige Gericht.
+## Lint
 
-### Template der Markdown-Datei
+`just lint` (MegaLinter via Docker: `rumdl` + `yamllint`) nach jeder Änderung. Konfig: `.mega-linter.yml`; `MD013` bewusst deaktiviert.
 
-Jedes Rezept folgt diesem Schema:
+## Inhalts-Architektur (drei synchrone Schichten)
 
-```markdown
-# {Rezeptname}
+1. `rezepte/{Slug}/rezept.md` + `rezept.{ext}` — Bild-Extension bleibt Original.
+2. `rezepte/index.md` — alphabetische Gesamtübersicht.
+3. `indizes/{thema}.md` — Rezept in **alle** passenden Hauptzutat-Indizes einsortieren; Salate nur in `salate.md`.
 
-[Quelle]({url-oder-quellenangabe})
-![{Rezeptname}](rezept.jpg)
+Einstieg: `index.md` im Repo-Root. Referenzrezept: `rezepte/Kartoffelpuffer-mit-Apfelmus/`.
 
-## Zutaten
+## Legacy-Abweichung
 
-- {Menge} {Zutat}
-- ...
-
-## Zubereitung
-
-1. {Schritt}
-2. ...
-```
-
-Das Rezept `kartoffelpuffer-apfelmus` dient als konkrete Referenzimplementierung.
-
-### Duplikate
-
-* Prüfe vor dem Anlegen, ob das Rezept (oder ein sehr ähnliches) bereits existiert.
-* Bei einem Duplikat: frage nach, ob überschrieben, als Variante (z. B. `kartoffelpuffer-apfelmus-v2`) angelegt oder abgebrochen werden soll.
-
-## Indizes anlegen bzw. aktualisieren
-
-### Struktur
-
-* Jeder Index liegt als eigene Markdown-Datei im Verzeichnis `indizes/`.
-* Die Dateinamen sind deutsch und in Kleinbuchstaben (z. B. `fleisch.md`, `kartoffeln.md`, `salate.md`).
-* Zusätzlich existiert `rezepte/index.md` als alphabetische Gesamtübersicht aller Rezepte.
-
-### Hauptzutaten-Indizes
-
-* Standard-Indizes nach Hauptzutat: `fleisch`, `fisch`, `eier`, `kartoffeln`, `reis`, `pasta`, `hülsenfrüchte`, `gemüse`, `salate`.
-* Existiert noch kein passender Index für eine klare Hauptzutat, lege einen neuen an.
-* Ein Rezept wird in **alle** passenden Hauptzutat-Indizes einsortiert (ein Hähnchengulasch mit Reis gehört in `fleisch` *und* `reis`).
-* **Ausnahme:** Salate erscheinen ausschließlich im Index `salate`, nicht zusätzlich in den Zutaten-Indizes.
-
-### Heuristik für Nebenzutaten
-
-* Ein Rezept gehört nur dann in einen Zutaten-Index, wenn die Zutat **prägend** für das Gericht ist.
-* Beispiel Eier: Omelett, Rührei, Eierstich → `eier`. Ein Kuchen mit 3 Eiern als Bindemittel → **nicht** in `eier`.
-* Im Zweifel: Würde jemand, der gezielt nach dieser Zutat sucht, dieses Rezept erwarten?
-
-### Pflege
-
-* Nach jedem neuen oder geänderten Rezept: alle betroffenen Indizes aktualisieren.
-* Rezepte, die in keinem Index auftauchen, aber dort erscheinen müssten, werden ergänzt.
-* Alle Rezepte innerhalb eines Index werden alphabetisch sortiert.
-
-## Abschluss
-
-* Nach jeder Änderung `just lint` ausführen.
-* Alle gemeldeten Fehler müssen beseitigt werden, bevor die Aufgabe als abgeschlossen gilt.
-* Schlägt `just lint` aufgrund bestehender, nicht von dir verursachter Inkonsistenzen fehl: melde dies explizit und frage, ob die Altlasten im gleichen Zug mitrepariert werden sollen.
+Bestehende Rezeptordner sind Mixed-Case (`Kartoffel-Lauch-Auflauf`); Spec fordert Kleinbuchstaben. Neue Ordner nach Spec, Bestand nicht als Muster kopieren.
