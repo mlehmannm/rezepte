@@ -1,4 +1,3 @@
-# AGENTS.md
 
 ## Vorgehen
 Triff pragmatische Annahmen und dokumentiere sie. Frage nur nach, wenn die Information weder in Quelle, Kontext noch bestehenden Rezepten zu finden ist
@@ -13,8 +12,8 @@ Triff pragmatische Annahmen und dokumentiere sie. Frage nur nach, wenn die Infor
 ### Verzeichnis- und Dateistruktur
 
 * Jedes Rezept kommt in ein eigenes Unterverzeichnis im Verzeichnis `rezepte/`.
-* Der Verzeichnisname ist der Rezeptname in Kleinbuchstaben, mit Bindestrichen statt Leerzeichen, ohne Umlaute oder Sonderzeichen. Er soll so kurz wie möglich, aber eindeutig sein.
-    * Beispiel: `Kartoffelpuffer mit Apfelmus` → `kartoffelpuffer-apfelmus`
+* Der Verzeichnisname ist der Rezeptname in Mixed-Case (jeder Wortbestandteil groß geschrieben), mit Bindestrichen statt Leerzeichen, ohne Umlaute oder Sonderzeichen. Er soll so kurz wie möglich, aber eindeutig sein. Reine Kleinschreibung ist nicht zulässig.
+    * Beispiel: `Kartoffelpuffer mit Apfelmus` → `Kartoffelpuffer-mit-Apfelmus`
 * Das Rezept wird als Markdown-Datei mit dem Namen `rezept.md` im Unterverzeichnis gespeichert.
 * Ein passendes Bild wird neben der Markdown-Datei als `rezept.{ext}` abgelegt, wobei die Endung der Quelldatei erhalten bleibt (z. B. `rezept.jpg`, `rezept.png`).
 * Existiert kein Bild, aber ein Video, extrahiere einen repräsentativen Frame – idealerweise das fertige Gericht.
@@ -40,7 +39,7 @@ Jedes Rezept folgt diesem Schema:
 2. ...
 ```
 
-Das Rezept `kartoffelpuffer-apfelmus` dient als konkrete Referenzimplementierung.
+Das Rezept `Kartoffelpuffer-mit-Apfelmus` dient als konkrete Referenzimplementierung.
 
 ### Duplikate
 

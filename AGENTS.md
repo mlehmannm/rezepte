@@ -21,7 +21,3 @@ Kuratierte Sammlung deutscher Rezepte (Markdown), meist aus Rezept-Webseiten ext
 3. `indizes/{thema}.md` — Rezept in **alle** passenden Hauptzutat-Indizes einsortieren; Salate nur in `salate.md`.
 
 Einstieg: `index.md` im Repo-Root. Referenzrezept: `rezepte/Kartoffelpuffer-mit-Apfelmus/`.
-
-## Legacy-Abweichung
-
-Bestehende Rezeptordner sind Mixed-Case (`Kartoffel-Lauch-Auflauf`); Spec fordert Kleinbuchstaben. Neue Ordner nach Spec, Bestand nicht als Muster kopieren.
