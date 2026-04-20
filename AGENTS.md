@@ -1,10 +1,8 @@
 # AGENTS.md
 
 ## Vorgehen
-
-- Triff keine Annahmen.
-- Frage, wenn etwas unklar ist.
-- Versuche das Problem im ganzen zu verstehen.
+Triff pragmatische Annahmen und dokumentiere sie. Frage nur nach, wenn die Information weder in Quelle, Kontext noch bestehenden Rezepten zu finden ist
+- Versuche das Problem im ganzen zu verstehen, bevor du mit der Umsetzung beginnst.
 
 ## Rezept extrahieren
 
@@ -12,28 +10,72 @@
 
 ## Aufbau eines Rezeptes
 
-- Jedes Rezept kommt in ein eigenes Unterverzeichnis im Unterverzeichnis `rezepte`.
-- Der Name des Unterverzeichnisses lautet wie das Rezept. Der Name sollte dabei so kurz wie möglich sein.
-- Jedes Rezept wird als einzelne Markdown-Datei mit dem Namen `rezept.md` im Unterverzeichnis gespeichert.
-- Verlinke das Ursprungsadresse des Rezeptes in der Markdown-Datei unterhalb der Überschrift.
-- Ein passendes Bild, wenn vorhanden, wird neben der Markdown-Datei mit dem Namen `rezept` abgelegt, wobei die Endung der Quelldatei erhalten bleibt.
-- Sollte es kein Bild aber ein Video geben, dann extrahiere ein Bild aus dem Video.
-- Verlinke das Bild in der Markdown-Datei unterhalb der Überschrift.
-- Ein gutes Beispiel zum Aufbau der Markdown-Datei findest du im Rezept `Kartoffelpuffer mit Apfelmus`.
+### Verzeichnis- und Dateistruktur
+
+* Jedes Rezept kommt in ein eigenes Unterverzeichnis im Verzeichnis `rezepte/`.
+* Der Verzeichnisname ist der Rezeptname in Kleinbuchstaben, mit Bindestrichen statt Leerzeichen, ohne Umlaute oder Sonderzeichen. Er soll so kurz wie möglich, aber eindeutig sein.
+    * Beispiel: `Kartoffelpuffer mit Apfelmus` → `kartoffelpuffer-apfelmus`
+* Das Rezept wird als Markdown-Datei mit dem Namen `rezept.md` im Unterverzeichnis gespeichert.
+* Ein passendes Bild wird neben der Markdown-Datei als `rezept.{ext}` abgelegt, wobei die Endung der Quelldatei erhalten bleibt (z. B. `rezept.jpg`, `rezept.png`).
+* Existiert kein Bild, aber ein Video, extrahiere einen repräsentativen Frame – idealerweise das fertige Gericht.
+
+### Template der Markdown-Datei
+
+Jedes Rezept folgt diesem Schema:
+
+```markdown
+# {Rezeptname}
+
+[Quelle]({url-oder-quellenangabe})
+![{Rezeptname}](rezept.jpg)
+
+## Zutaten
+
+- {Menge} {Zutat}
+- ...
+
+## Zubereitung
+
+1. {Schritt}
+2. ...
+```
+
+Das Rezept `kartoffelpuffer-apfelmus` dient als konkrete Referenzimplementierung.
+
+### Duplikate
+
+* Prüfe vor dem Anlegen, ob das Rezept (oder ein sehr ähnliches) bereits existiert.
+* Bei einem Duplikat: frage nach, ob überschrieben, als Variante (z. B. `kartoffelpuffer-apfelmus-v2`) angelegt oder abgebrochen werden soll.
 
 ## Indizes anlegen bzw. aktualisieren
 
-- Nach dem Hinzufügen eines neuen Rezeptes müssen die Indizes angelegt bzw. aktualisiert werden.
-- Es sollte Indizes nach Hauptzutaten geben, wie z.B.: Fleisch, Fisch, Eier, Kartoffeln, Reis.
-- Beachte dabei, das Eier oft nur eine Nebenzutat sind.
-- Jeder Index kommt in eine eigene Markdown-Datei im Unterveichnis `indizes`.
-- Salate kommen nur in den Index für Salate.
-- Die Markdown-Dateien bekommen einen deutschen Namen in Kleinbuchstaben.
-- Rezepte, die noch nicht in den Indizes aufgelistet werden, müssen ergänzt werden.
-- Jedes Rezept wird auch im Index im Unterverzeichnis `rezepte` eingetragen.
-- Sortiere die Rezepte in allen Indizes alphabetisch.
+### Struktur
+
+* Jeder Index liegt als eigene Markdown-Datei im Verzeichnis `indizes/`.
+* Die Dateinamen sind deutsch und in Kleinbuchstaben (z. B. `fleisch.md`, `kartoffeln.md`, `salate.md`).
+* Zusätzlich existiert `rezepte/index.md` als alphabetische Gesamtübersicht aller Rezepte.
+
+### Hauptzutaten-Indizes
+
+* Standard-Indizes nach Hauptzutat: `fleisch`, `fisch`, `eier`, `kartoffeln`, `reis`, `pasta`, `hülsenfrüchte`, `gemüse`, `salate`.
+* Existiert noch kein passender Index für eine klare Hauptzutat, lege einen neuen an.
+* Ein Rezept wird in **alle** passenden Hauptzutat-Indizes einsortiert (ein Hähnchengulasch mit Reis gehört in `fleisch` *und* `reis`).
+* **Ausnahme:** Salate erscheinen ausschließlich im Index `salate`, nicht zusätzlich in den Zutaten-Indizes.
+
+### Heuristik für Nebenzutaten
+
+* Ein Rezept gehört nur dann in einen Zutaten-Index, wenn die Zutat **prägend** für das Gericht ist.
+* Beispiel Eier: Omelett, Rührei, Eierstich → `eier`. Ein Kuchen mit 3 Eiern als Bindemittel → **nicht** in `eier`.
+* Im Zweifel: Würde jemand, der gezielt nach dieser Zutat sucht, dieses Rezept erwarten?
+
+### Pflege
+
+* Nach jedem neuen oder geänderten Rezept: alle betroffenen Indizes aktualisieren.
+* Rezepte, die in keinem Index auftauchen, aber dort erscheinen müssten, werden ergänzt.
+* Alle Rezepte innerhalb eines Index werden alphabetisch sortiert.
 
 ## Abschluss
 
-- Es muss immer eine Überprüfung aller Rezepte und Indizes erfolgen. Dazu muss `just lint` aufgerufen werden.
-- Alle gemeldeten Fehler müssen beseitigt werden.
+* Nach jeder Änderung `just lint` ausführen.
+* Alle gemeldeten Fehler müssen beseitigt werden, bevor die Aufgabe als abgeschlossen gilt.
+* Schlägt `just lint` aufgrund bestehender, nicht von dir verursachter Inkonsistenzen fehl: melde dies explizit und frage, ob die Altlasten im gleichen Zug mitrepariert werden sollen.
