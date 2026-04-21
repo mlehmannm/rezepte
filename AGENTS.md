@@ -1,39 +1,23 @@
 # AGENTS.md
 
-## Vorgehen
+Hinweise für Coding-Agents in diesem Repo.
 
-- Triff keine Annahmen.
-- Frage, wenn etwas unklar ist.
-- Versuche das Problem im ganzen zu verstehen.
+## Was dieses Repo ist
 
-## Rezept extrahieren
+Kuratierte Sammlung deutscher Rezepte (Markdown), meist aus Rezept-Webseiten extrahiert. Kein Build — nur Inhalte plus Linting.
 
-- Wenn es ein Druckansicht gibt, dann bevorzuge diese zum Extrahieren, weil sie die Informationen meist kompakter darstellt, gerade in Bezug auf die Mengen der Zutaten.
+## Maßgebliche Spec
 
-## Aufbau eines Rezeptes
+`docs/rezept-hinzufuegen.md` regelt Layout, Markdown-Template, Index-Pflege, Duplikat-Handling, Abschluss-Schritte. **Vor Anlegen/Ändern von Rezepten lesen.** Bei Widerspruch zu dieser Datei: Spec gewinnt.
 
-- Jedes Rezept kommt in ein eigenes Unterverzeichnis im Unterverzeichnis `rezepte`.
-- Der Name des Unterverzeichnisses lautet wie das Rezept. Der Name sollte dabei so kurz wie möglich sein.
-- Jedes Rezept wird als einzelne Markdown-Datei mit dem Namen `rezept.md` im Unterverzeichnis gespeichert.
-- Verlinke das Ursprungsadresse des Rezeptes in der Markdown-Datei unterhalb der Überschrift.
-- Ein passendes Bild, wenn vorhanden, wird neben der Markdown-Datei mit dem Namen `rezept` abgelegt, wobei die Endung der Quelldatei erhalten bleibt.
-- Sollte es kein Bild aber ein Video geben, dann extrahiere ein Bild aus dem Video.
-- Verlinke das Bild in der Markdown-Datei unterhalb der Überschrift.
-- Ein gutes Beispiel zum Aufbau der Markdown-Datei findest du im Rezept `Kartoffelpuffer mit Apfelmus`.
+## Lint
 
-## Indizes anlegen bzw. aktualisieren
+`just lint` (MegaLinter via Docker: `rumdl` + `yamllint`) nach jeder Änderung. Konfig: `.mega-linter.yml`; `MD013` bewusst deaktiviert.
 
-- Nach dem Hinzufügen eines neuen Rezeptes müssen die Indizes angelegt bzw. aktualisiert werden.
-- Es sollte Indizes nach Hauptzutaten geben, wie z.B.: Fleisch, Fisch, Eier, Kartoffeln, Reis.
-- Beachte dabei, das Eier oft nur eine Nebenzutat sind.
-- Jeder Index kommt in eine eigene Markdown-Datei im Unterveichnis `indizes`.
-- Salate kommen nur in den Index für Salate.
-- Die Markdown-Dateien bekommen einen deutschen Namen in Kleinbuchstaben.
-- Rezepte, die noch nicht in den Indizes aufgelistet werden, müssen ergänzt werden.
-- Jedes Rezept wird auch im Index im Unterverzeichnis `rezepte` eingetragen.
-- Sortiere die Rezepte in allen Indizes alphabetisch.
+## Inhalts-Architektur (drei synchrone Schichten)
 
-## Abschluss
+1. `rezepte/{Slug}/rezept.md` + `rezept.{ext}` — Bild-Extension bleibt Original.
+2. `rezepte/index.md` — alphabetische Gesamtübersicht.
+3. `indizes/{thema}.md` — Rezept in **alle** passenden Hauptzutat-Indizes einsortieren; Salate nur in `salate.md`.
 
-- Es muss immer eine Überprüfung aller Rezepte und Indizes erfolgen. Dazu muss `just lint` aufgerufen werden.
-- Alle gemeldeten Fehler müssen beseitigt werden.
+Einstieg: `index.md` im Repo-Root. Referenzrezept: `rezepte/Kartoffelpuffer-mit-Apfelmus/`.

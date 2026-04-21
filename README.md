@@ -9,3 +9,8 @@ Für meine Zwecke benutze ich `Gemini`. Entweder aus `VS Code` heraus oder direk
 ```shell
 speichere mir das Rezept von der Webseite https://www.lecker.de/wuerziger-blumenkohl-aus-dem-backofen-129033.html als Markdown-Datei
 ```
+
+## Ablage und Struktur
+
+Vorgaben zu Verzeichnis-Layout, Benennung, Indizes und Lint stehen in
+[docs/rezept-hinzufuegen.md](docs/rezept-hinzufuegen.md).
