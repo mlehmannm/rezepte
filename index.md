@@ -2,6 +2,7 @@
 
 ## Rezepte nach Hauptzutaten
 
+- [Backwaren](indizes/backwaren.md)
 - [Eier](indizes/eier.md)
 - [Fleisch](indizes/fleisch.md)
 - [Fisch](indizes/fisch.md)
