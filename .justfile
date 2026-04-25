@@ -14,4 +14,4 @@ gemini-cli:
 
 # lint various files
 lint:
-    docker run --rm --mount "type=bind,src={{ justfile_directory() }},dst=/tmp/lint" oxsecurity/megalinter:v9 /tmp/lint/rumdl
+    docker run --rm --mount "type=bind,src={{ justfile_directory() }},dst=/tmp/lint" oxsecurity/megalinter:v9
