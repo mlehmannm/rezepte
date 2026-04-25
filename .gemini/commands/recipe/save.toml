@@ -1,0 +1,4 @@
+# Invoked via: /recipe:save "<url to recipe>"
+
+description = "Speichert das Rezept von der angebenen Webseite als Markdown-Datei."
+prompt = "Bitte speichere mir das Rezept von der Webseite {{args}} als Markdown-Datei."
