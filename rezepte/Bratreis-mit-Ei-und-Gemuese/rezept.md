@@ -2,6 +2,8 @@
 
 [Quelle](https://www.ndr.de/ratgeber/kochen/rezepte/bratreis-mit-ei-und-gemuese,bratreis-102.html)
 
+![Bratreis mit Ei und Gemüse](rezept.jpg)
+
 ## Zutaten
 
 - 240 g Vollkornreis
@@ -26,3 +28,15 @@
 5. **Braten:** Den gekochten Reis und die Tamari-Soße unter das Gemüse mischen. Alles weitere 5 Minuten braten, bis der Reis leicht knusprig wird.
 6. **Eier hinzufügen:** Die Eier in einer Schale verquirlen, in die Pfanne geben, kurz stocken lassen und dann unter den Reis rühren.
 7. **Abschmecken:** Mit Salz, Pfeffer und Kräutern der Provence würzen. Mit frisch gehackten Kräutern garniert servieren.
+
+## Tipp
+
+Ballaststoffreicher wird das Rezept, wenn man abgekühlten Reis vom Vortag verwendet. Denn beim Abkühlprozess entsteht resistente Stärke. Sie kann den Blutzuckerspiegel stabilisieren, das Sättigungsgefühl verlängern und unterstützt eine gesunde Darmflora.
+
+## Nährwerte (pro Portion)
+
+- ca. 458 kcal
+- 19 g Eiweiß
+- 18 g Fett
+- 56 g Kohlenhydrate
+- 7 g Ballaststoffe
