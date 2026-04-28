@@ -8,7 +8,7 @@ Kuratierte Sammlung deutscher Rezepte (Markdown), meist aus Rezept-Webseiten ext
 
 ## Maßgebliche Spezifikationen
 
-`docs/rezept-hinzufuegen.md` regelt Layout, Markdown-Template, Index-Pflege, Duplikat-Handling, Abschluss-Schritte. **Vor Anlegen/Ändern von Rezepten lesen.** Bei Widerspruch zu dieser Datei: Spec gewinnt.
+`docs/rezept-hinzufuegen.md` regelt Layout, Markdown-Template, Index-Pflege, Duplikat-Handling, Abschluss-Schritte. **Vor Anlegen/Ändern von Rezepten lesen.** Bei Widerspruch zu dieser Datei: Spezifikationen gewinnt.
 
 ## Lint
 

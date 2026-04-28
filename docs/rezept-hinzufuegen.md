@@ -7,6 +7,7 @@ Triff pragmatische Annahmen und dokumentiere sie. Frage nur nach, wenn die Infor
 ## Rezept extrahieren
 
 - Wenn es ein Druckansicht gibt, dann bevorzuge diese zum Extrahieren, weil sie die Informationen meist kompakter darstellt, gerade in Bezug auf die Mengen der Zutaten.
+- Nach Möglichkeit das Rezept für vier Personen auslegen.
 
 ## Aufbau eines Rezeptes
 
